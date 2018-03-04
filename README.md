@@ -30,6 +30,10 @@ Project SDK: Java 1.8 (1.8.0_144)
     - Added methods to BoardUtility to populate Board's boardArray
     - boardArray is a 2-D array that contains Piece objects
     - The mappings from traditional board notation to the boardArray indices are:
-        - <img src="./images/traditional-board-notation.png" width="75%" height="75%">
-        - <img src="./images/board-array-mapping.png" width="75%" height="75%">
+        - <img src="./images/traditional-board-notation.png" width="50%" height="50%">
+        - <img src="./images/board-array-mapping.png" width="50%" height="50%">
     - Created PlayChess class to run the program and display the chess board on the console
+
+- Step 5
+    - Added method to Board to make Chess moves
+    - Updated PlayChess to show an example game
