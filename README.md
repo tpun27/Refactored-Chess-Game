@@ -20,3 +20,8 @@ Project SDK: Java 1.8 (1.8.0_144)
     - Coordinate will allow you to interchange string (e.g. 'd4') and integer (e.g. (2, 5)) board positions
     - Added Coordinate attribute to Piece class
     - Modified piece constructors to use pieceColor and pieceStringPos
+
+- Step 3
+    - Created Board class with boardArray attribute
+    - Created BoardUtility to provide static helper methods
+    - Modified Coordinate to dynamically calculate integer board positions (posX and posX) from chessStringPos
