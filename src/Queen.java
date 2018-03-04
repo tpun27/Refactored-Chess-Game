@@ -3,8 +3,9 @@ public class Queen extends Piece {
     public static final char WHITE_QUEEN_SYMBOL = '\u2655';
     public static final char BLACK_QUEEN_SYMBOL = '\u265B';
 
-    public Queen() {
-
+    public Queen(Piece.PieceColorOptions pieceColor, String pieceStringPos) {
+        super(pieceColor, pieceStringPos);
+        setPieceSymbol();
     }
 
     /* Implement abstract method setPieceSymbol() */

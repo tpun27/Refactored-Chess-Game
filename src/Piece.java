@@ -6,9 +6,11 @@ public abstract class Piece {
 
     protected PieceColorOptions pieceColor;
     protected char pieceSymbol;
+    protected Coordinate pieceCoordinate;
 
-    public Piece() {
-
+    public Piece(PieceColorOptions pieceColor, String pieceStringPos) {
+        setPieceColor(pieceColor);
+        setPieceCoordinate(pieceStringPos);
     }
 
     /* Getters and Setters */
@@ -25,5 +27,13 @@ public abstract class Piece {
     }
 
     public abstract void setPieceSymbol();
+
+    public Coordinate getPieceCoordinate() {
+        return pieceCoordinate;
+    }
+
+    public void setPieceCoordinate(String pieceStringPos) {
+        pieceCoordinate = new Coordinate(pieceStringPos);
+    }
 
 }

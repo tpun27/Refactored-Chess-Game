@@ -3,8 +3,9 @@ public class Knight extends Piece {
     public static final char WHITE_KNIGHT_SYMBOL = '\u2658';
     public static final char BLACK_KNIGHT_SYMBOL = '\u265E';
 
-    public Knight() {
-
+    public Knight(Piece.PieceColorOptions pieceColor, String pieceStringPos) {
+        super(pieceColor, pieceStringPos);
+        setPieceSymbol();
     }
 
     /* Implement abstract method setPieceSymbol() */
@@ -14,4 +15,5 @@ public class Knight extends Piece {
         else if (pieceColor == PieceColorOptions.BLACK)
             this.pieceSymbol = BLACK_KNIGHT_SYMBOL;
     }
+
 }

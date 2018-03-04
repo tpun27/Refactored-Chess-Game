@@ -14,3 +14,9 @@ Project SDK: Java 1.8 (1.8.0_144)
     - Created attributes for Piece color and symbol
     - Added getters/setters for Piece color and symbol, including abstract setPieceSymbol() method
     - Implemented setPieceSymbol() in each subclass
+
+- Step 2
+    - Added Coordinate class for piece positioning
+    - Coordinate will allow you to interchange string (e.g. 'd4') and integer (e.g. (2, 5)) board positions
+    - Added Coordinate attribute to Piece class
+    - Modified piece constructors to use pieceColor and pieceStringPos
