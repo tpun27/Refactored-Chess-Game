@@ -7,6 +7,10 @@ public class Board {
 
     public Board() {
         this.boardArray = new Piece[VERTICAL_BOARD_LENGTH][HORIZONTAL_BOARD_LENGTH];
+        BoardUtility.initializeBoardPieces(boardArray);
     }
 
+    public Piece[][] getBoardArray() {
+        return boardArray;
+    }
 }

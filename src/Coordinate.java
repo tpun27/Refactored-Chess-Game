@@ -28,6 +28,15 @@ public class Coordinate {
         }
     }
 
+    public int getPosX() {
+        return posX;
+    }
+
+    public int getPosY() {
+        return posY;
+    }
+
+    /* Utility Methods */
     private  boolean isWithinBoard(String chessStringPos) {
         if (chessStringPos.length() != 2) {
             return false;
