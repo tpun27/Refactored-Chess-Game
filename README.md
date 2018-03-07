@@ -37,3 +37,9 @@ Project SDK: Java 1.8 (1.8.0_144)
 - Step 5
     - Added method to Board to make Chess moves
     - Updated PlayChess to show an example game
+
+- Step 6
+    - Created MoveUtility class to store methods that validate moves
+    - Implemented isValidEndpoints() to validate moves solely on piece color
+    - Started implementing isValidPath() to check for piece specific movement validation
+    - Modified PlayChess to demonstrate isValidEndpoints()
