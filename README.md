@@ -75,3 +75,7 @@ Project SDK: Java 1.8 (1.8.0_144)
     - Created CheckUtility class
     - Added move validation to Board.makeMove() method
     - Implemented PlayChess.move() method to handle exceptions
+
+- Step 14
+    - Added methods isMovePossibleWithoutCheck() and isInCheck() to CheckUtility
+    - Implemented isMovePossibleWithoutCheck()
