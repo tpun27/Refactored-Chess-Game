@@ -60,3 +60,8 @@ Project SDK: Java 1.8 (1.8.0_144)
     - Made methods in MoveUtility static
     - Implemented isValidKingMove()
     - Modified PlayChess to demonstrate isValidPath()
+
+- Step 11
+    - Started implementing isValidPawnMove()
+    - In isValidPawnMove(), a check was added to validated 2-space forward moves
+    - Added hasMoved attribute to Piece class

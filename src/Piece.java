@@ -7,6 +7,7 @@ public abstract class Piece {
     protected PieceColorOptions pieceColor;
     protected char pieceSymbol;
     protected Coordinate pieceCoordinate;
+    protected boolean hasMoved;
 
     public Piece(PieceColorOptions pieceColor, String pieceStringPos) {
         setPieceColor(pieceColor);
@@ -34,6 +35,14 @@ public abstract class Piece {
 
     public void setPieceCoordinate(String pieceStringPos) {
         pieceCoordinate = new Coordinate(pieceStringPos);
+    }
+
+    public boolean getHasMoved() {
+        return hasMoved;
+    }
+
+    public void setHasMoved(boolean hasMoved) {
+        this.hasMoved = hasMoved;
     }
 
 }

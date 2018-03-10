@@ -62,6 +62,45 @@ public class MoveUtility {
         return false;
     }
 
+    protected boolean isValidPawnMove(Piece[][] boardArray, Coordinate initialCoordinate, Coordinate newCoordinate,
+                                      Piece.PieceColorOptions playerColor) {
+
+        int diffX, diffY, forwardMultiplier;
+        Piece pawnPiece, pieceToCapture;
+        Coordinate betweenCoordinate, enPassantCapturedPawnCoordinate;
+
+        diffX = subtractXCoordinates(initialCoordinate, newCoordinate);
+        diffY = subtractYCoordinates(initialCoordinate, newCoordinate);
+
+        // posY increases for White Pawns and decreases for Black Pawns
+        pawnPiece = getPieceFromCoordinate(boardArray, initialCoordinate);
+        if (pawnPiece.getPieceColor() == Piece.PieceColorOptions.WHITE) {
+            forwardMultiplier = 1;
+        }
+        else {
+            forwardMultiplier = -1;
+        }
+
+        // 2-space forward moves and diagonal moves have this property
+        if (Math.abs(diffX) + Math.abs(diffY) == 2) {
+
+            if (diffY == 2*forwardMultiplier && !pawnPiece.getHasMoved()) {
+                // Check if the space in front of the Pawn is occupied by another piece
+                betweenCoordinate = new Coordinate(initialCoordinate);
+                betweenCoordinate.addVals(0, forwardMultiplier);
+                if (getPieceFromCoordinate(boardArray, betweenCoordinate) == null) {
+                    // Check if next space in front is occupied by another piece
+                    betweenCoordinate.addVals(0, forwardMultiplier);
+                    if (getPieceFromCoordinate(boardArray, betweenCoordinate) == null) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
     protected static boolean isValidKnightMove(Coordinate initialCoordinate, Coordinate newCoordinate) {
         int absDiffX, absDiffY;
 
