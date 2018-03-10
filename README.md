@@ -79,3 +79,6 @@ Project SDK: Java 1.8 (1.8.0_144)
 - Step 14
     - Added methods isMovePossibleWithoutCheck() and isInCheck() to CheckUtility
     - Implemented isMovePossibleWithoutCheck()
+
+- Step 15
+    - Implemented isInCheck() and getKingCoordinate()

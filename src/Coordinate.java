@@ -14,6 +14,10 @@ public class Coordinate {
         setChessStringPos(chessStringPos);
     }
 
+    public Coordinate(int posX, int posY) {
+        setPosXY(posX, posY);
+    }
+
     public Coordinate(Coordinate oldCoordinate) {
         setChessStringPos(oldCoordinate.getChessStringPos());
     }
