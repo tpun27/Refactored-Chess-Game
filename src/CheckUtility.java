@@ -46,6 +46,46 @@ public final class CheckUtility {
         return false;
     }
 
+    protected static boolean isInCheckMate(Piece[][] boardArray, Piece.PieceColorOptions playerColor) {
+        if (isKingMovable(boardArray, playerColor)) {
+            return false;
+        }
+
+        if (isCheckBlockable(boardArray, playerColor)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    protected static boolean isKingMovable(Piece[][] boardArray, Piece.PieceColorOptions playerColor) {
+        Coordinate kingCoordinate, oppCoordinate;
+        int kingPosX, kingPosY;
+
+        kingCoordinate = getKingCoordinate(boardArray, playerColor);
+        kingPosX = kingCoordinate.getPosX();
+        kingPosY = kingCoordinate.getPosY();
+
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                oppCoordinate = new Coordinate(kingPosX + i, kingPosY + j);
+                // If the position data in oppCoordinate is not empty, the Coordinate is a valid board space
+                if (oppCoordinate.getChessStringPos() != null) {
+                    if (MoveUtility.isValidEndpoints(boardArray, kingCoordinate, oppCoordinate, playerColor)) {
+                        if (isMovePossibleWithoutCheck(boardArray, kingCoordinate, oppCoordinate, playerColor)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    protected static boolean isCheckBlockable(Piece[][] boardArray, Piece.PieceColorOptions playerColor) {
+        return false;
+    }
+
     protected static Coordinate getKingCoordinate(Piece[][] boardArray, Piece.PieceColorOptions playerColor) {
         Piece kingPiece;
         Coordinate kingCoordinate;

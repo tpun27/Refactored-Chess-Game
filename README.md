@@ -82,3 +82,7 @@ Project SDK: Java 1.8 (1.8.0_144)
 
 - Step 15
     - Implemented isInCheck() and getKingCoordinate()
+
+- Step 16
+    - Implemented is isInCheckMate() which uses helper methods isKingMovable() and isCheckBlockable()
+    - Implemented isKingMovable()
