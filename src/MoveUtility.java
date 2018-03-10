@@ -27,7 +27,9 @@ public class MoveUtility {
         }
 
         if (piece instanceof Knight) {
-
+            if (isValidKnightMove(initialCoordinate, newCoordinate)) {
+                return true;
+            }
         }
 
         if (piece instanceof Bishop) {
@@ -49,8 +51,32 @@ public class MoveUtility {
         return false;
     }
 
+    protected boolean isValidKnightMove(Coordinate initialCoordinate, Coordinate newCoordinate) {
+        int absDiffX, absDiffY;
+
+        absDiffX = Math.abs(subtractXCoordinates(initialCoordinate, newCoordinate));
+        absDiffY = Math.abs(subtractYCoordinates(initialCoordinate, newCoordinate));
+
+        // All valid Knight moves move 1 space either horizontally or vertically
+        // and 2 spaces in the other direction
+        if (absDiffX + absDiffY == 3) {
+            if ((absDiffX == 1 || absDiffY == 1) && (absDiffX == 2 || absDiffY == 2)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     protected static Piece getPieceFromCoordinate(Piece[][] boardArray, Coordinate pieceCoordinate) {
         return boardArray[pieceCoordinate.getPosY()][pieceCoordinate.getPosX()];
+    }
+
+    protected int subtractXCoordinates(Coordinate initialCoordinate, Coordinate newCoordinate) {
+        return newCoordinate.getPosX() - initialCoordinate.getPosX();
+    }
+
+    protected int subtractYCoordinates(Coordinate initialCoordinate, Coordinate newCoordinate) {
+        return newCoordinate.getPosY() - initialCoordinate.getPosY();
     }
 
 }

@@ -43,3 +43,8 @@ Project SDK: Java 1.8 (1.8.0_144)
     - Implemented isValidEndpoints() to validate moves solely on piece color
     - Started implementing isValidPath() to check for piece specific movement validation
     - Modified PlayChess to demonstrate isValidEndpoints()
+
+- Step 7
+    - Added method isValidKnightMove() to MoveUtility to check for legal start and end Coordinates
+    - Added helper methods subtractXCoordinates() and subtractYCoordinates()
+    - Continued implementing isValidPath()
