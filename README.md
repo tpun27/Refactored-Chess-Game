@@ -51,4 +51,7 @@ Project SDK: Java 1.8 (1.8.0_144)
 
 - Step 8
     - Added isValidDiagonalPath() to check that two Coordinates form an unobstructed diagonal path
-    - Added helper methods to the Coordinate classs
+    - Added helper methods to the Coordinate class
+
+- Step 9 -
+    - Added isValidStraightPath() to check that two Coordinates form an unobstructed straight path

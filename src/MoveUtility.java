@@ -39,7 +39,9 @@ public class MoveUtility {
         }
 
         if (piece instanceof Rook) {
-
+            if (isValidStraightPath(boardArray, initialCoordinate, newCoordinate)) {
+                return true;
+            }
         }
 
         if (piece instanceof Queen) {
@@ -77,6 +79,25 @@ public class MoveUtility {
 
         // Verify that path is diagonal
         if (Math.abs(diffX) != Math.abs(diffY)) {
+            return false;
+        }
+
+        if (isPathUnobstructed(boardArray, initialCoordinate, newCoordinate)) {
+            return true;
+        }
+        return false;
+    }
+
+    protected boolean isValidStraightPath(Piece[][] boardArray, Coordinate initialCoordinate, Coordinate newCoordinate) {
+        int diffX, diffY, spacesToVerify, xIncrement, yIncrement;
+        Coordinate betweenCoordinate;
+        Piece betweenPiece;
+
+        diffX = subtractXCoordinates(initialCoordinate, newCoordinate);
+        diffY = subtractYCoordinates(initialCoordinate, newCoordinate);
+
+        // Verify that path is vertical or horizontal
+        if (diffX != 0 && diffY != 0) {
             return false;
         }
 
