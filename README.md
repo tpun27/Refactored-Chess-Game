@@ -48,3 +48,7 @@ Project SDK: Java 1.8 (1.8.0_144)
     - Added method isValidKnightMove() to MoveUtility to check for legal start and end Coordinates
     - Added helper methods subtractXCoordinates() and subtractYCoordinates()
     - Continued implementing isValidPath()
+
+- Step 8
+    - Added isValidDiagonalPath() to check that two Coordinates form an unobstructed diagonal path
+    - Added helper methods to the Coordinate classs
