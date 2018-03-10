@@ -23,7 +23,9 @@ public class MoveUtility {
         piece = getPieceFromCoordinate(boardArray, initialCoordinate);
 
         if (piece instanceof Pawn) {
-
+            if (isValidPawnMove(boardArray, initialCoordinate, newCoordinate, playerColor)) {
+                return true;
+            }
         }
 
         if (piece instanceof Knight) {
@@ -62,7 +64,7 @@ public class MoveUtility {
         return false;
     }
 
-    protected boolean isValidPawnMove(Piece[][] boardArray, Coordinate initialCoordinate, Coordinate newCoordinate,
+    protected static boolean isValidPawnMove(Piece[][] boardArray, Coordinate initialCoordinate, Coordinate newCoordinate,
                                       Piece.PieceColorOptions playerColor) {
 
         int diffX, diffY, forwardMultiplier;
@@ -84,6 +86,7 @@ public class MoveUtility {
         // 2-space forward moves and diagonal moves have this property
         if (Math.abs(diffX) + Math.abs(diffY) == 2) {
 
+            // Straight move
             if (diffY == 2*forwardMultiplier && !pawnPiece.getHasMoved()) {
                 // Check if the space in front of the Pawn is occupied by another piece
                 betweenCoordinate = new Coordinate(initialCoordinate);
@@ -95,6 +98,27 @@ public class MoveUtility {
                         return true;
                     }
                 }
+            }
+
+            // Diagonal move
+            // If a Pawn has a total displacement of 2 and moved forward one space,
+            // it must have also moved left or right one space
+            if (diffY == forwardMultiplier) {
+                pieceToCapture = getPieceFromCoordinate(boardArray, newCoordinate);
+                if (pieceToCapture != null && pieceToCapture.getPieceColor() != playerColor) {
+                    return true;
+                }
+            }
+
+        }
+
+        // 1-space forward move and promotion
+        if (diffX == 0 && diffY == forwardMultiplier) {
+            // Check if the space in front of the Pawn is occupied by another piece
+            betweenCoordinate = new Coordinate(initialCoordinate);
+            betweenCoordinate.addVals(0, forwardMultiplier);
+            if (getPieceFromCoordinate(boardArray, betweenCoordinate) == null) {
+                return true;
             }
         }
 

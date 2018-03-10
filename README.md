@@ -65,3 +65,7 @@ Project SDK: Java 1.8 (1.8.0_144)
     - Started implementing isValidPawnMove()
     - In isValidPawnMove(), a check was added to validated 2-space forward moves
     - Added hasMoved attribute to Piece class
+
+- Step 12
+    - Continued implementing isValidPawnMove()
+    - In isValidPawnMove(), checks were added to validate diagonal moves and 1-space forward moves
