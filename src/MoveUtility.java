@@ -17,7 +17,7 @@ public class MoveUtility {
         return true;
     }
 
-    protected boolean isValidPath(Piece[][] boardArray, Coordinate initialCoordinate, Coordinate newCoordinate,
+    protected static boolean isValidPath(Piece[][] boardArray, Coordinate initialCoordinate, Coordinate newCoordinate,
                                   Piece.PieceColorOptions playerColor) {
         Piece piece;
         piece = getPieceFromCoordinate(boardArray, initialCoordinate);
@@ -45,17 +45,24 @@ public class MoveUtility {
         }
 
         if (piece instanceof Queen) {
-
+            if (isValidDiagonalPath(boardArray, initialCoordinate, newCoordinate)) {
+                return true;
+            }
+            if (isValidStraightPath(boardArray, initialCoordinate, newCoordinate)) {
+                return true;
+            }
         }
 
         if (piece instanceof King) {
-
+            if (isValidKingMove(initialCoordinate, newCoordinate)) {
+                return true;
+            }
         }
 
         return false;
     }
 
-    protected boolean isValidKnightMove(Coordinate initialCoordinate, Coordinate newCoordinate) {
+    protected static boolean isValidKnightMove(Coordinate initialCoordinate, Coordinate newCoordinate) {
         int absDiffX, absDiffY;
 
         absDiffX = Math.abs(subtractXCoordinates(initialCoordinate, newCoordinate));
@@ -71,7 +78,21 @@ public class MoveUtility {
         return false;
     }
 
-    protected boolean isValidDiagonalPath(Piece[][] boardArray, Coordinate initialCoordinate, Coordinate newCoordinate) {
+    protected static boolean isValidKingMove(Coordinate initialCoordinate, Coordinate newCoordinate) {
+        int absDiffX, absDiffY;
+
+        absDiffX = Math.abs(subtractXCoordinates(initialCoordinate, newCoordinate));
+        absDiffY = Math.abs(subtractYCoordinates(initialCoordinate, newCoordinate));
+
+        // Besides castling, the King can move at most one space both horizontally and vertically
+        if (absDiffX <= 1 && absDiffY <= 1) {
+            return true;
+        }
+
+        return false;
+    }
+
+    protected static boolean isValidDiagonalPath(Piece[][] boardArray, Coordinate initialCoordinate, Coordinate newCoordinate) {
         int diffX, diffY;
 
         diffX = subtractXCoordinates(initialCoordinate, newCoordinate);
@@ -88,7 +109,7 @@ public class MoveUtility {
         return false;
     }
 
-    protected boolean isValidStraightPath(Piece[][] boardArray, Coordinate initialCoordinate, Coordinate newCoordinate) {
+    protected static boolean isValidStraightPath(Piece[][] boardArray, Coordinate initialCoordinate, Coordinate newCoordinate) {
         int diffX, diffY, spacesToVerify, xIncrement, yIncrement;
         Coordinate betweenCoordinate;
         Piece betweenPiece;
@@ -107,7 +128,7 @@ public class MoveUtility {
         return false;
     }
 
-    protected boolean isPathUnobstructed(Piece[][] boardArray, Coordinate initialCoordinate, Coordinate newCoordinate) {
+    protected static boolean isPathUnobstructed(Piece[][] boardArray, Coordinate initialCoordinate, Coordinate newCoordinate) {
         int diffX, diffY, spacesToVerify, xIncrement, yIncrement;
         Coordinate betweenCoordinate;
         Piece betweenPiece;
@@ -134,15 +155,15 @@ public class MoveUtility {
         return boardArray[pieceCoordinate.getPosY()][pieceCoordinate.getPosX()];
     }
 
-    protected int subtractXCoordinates(Coordinate initialCoordinate, Coordinate newCoordinate) {
+    protected static int subtractXCoordinates(Coordinate initialCoordinate, Coordinate newCoordinate) {
         return newCoordinate.getPosX() - initialCoordinate.getPosX();
     }
 
-    protected int subtractYCoordinates(Coordinate initialCoordinate, Coordinate newCoordinate) {
+    protected static int subtractYCoordinates(Coordinate initialCoordinate, Coordinate newCoordinate) {
         return newCoordinate.getPosY() - initialCoordinate.getPosY();
     }
 
-    protected int calculateIncrement(int posDiff) {
+    protected static int calculateIncrement(int posDiff) {
         if (posDiff > 0) {
             return 1;
         }
