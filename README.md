@@ -69,3 +69,9 @@ Project SDK: Java 1.8 (1.8.0_144)
 - Step 12
     - Continued implementing isValidPawnMove()
     - In isValidPawnMove(), checks were added to validate diagonal moves and 1-space forward moves
+
+- Step 13
+    - Created InvalidMoveException and InvalidBoardPositionException classes
+    - Created CheckUtility class
+    - Added move validation to Board.makeMove() method
+    - Implemented PlayChess.move() method to handle exceptions
