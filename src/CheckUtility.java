@@ -82,7 +82,69 @@ public final class CheckUtility {
         return false;
     }
 
+    // This function groups both capturing and blocking together even though
+    // capturing the opposing piece is not technically considered blocking a check
     protected static boolean isCheckBlockable(Piece[][] boardArray, Piece.PieceColorOptions playerColor) {
+
+        Coordinate[] coordinatesToBlock;
+        Coordinate kingCoordinate, oppCoordinate, allyCoordinate;
+        int blockCounter, diffX, diffY, spacesToVerify, xIncrement, yIncrement;
+
+        coordinatesToBlock = new Coordinate[Board.VERTICAL_BOARD_LENGTH];
+        kingCoordinate = getKingCoordinate(boardArray, playerColor);
+        oppCoordinate = null;
+        blockCounter = 0;
+
+        outerloop:
+        for (int i = 0; i < Board.VERTICAL_BOARD_LENGTH; i++) {
+            for (int j = 0; j < Board.HORIZONTAL_BOARD_LENGTH; j++) {
+                oppCoordinate = new Coordinate(j, i);
+                if (MoveUtility.isValidEndpoints(boardArray, oppCoordinate, kingCoordinate, Board.oppositeColor(playerColor))) {
+                    if (MoveUtility.isValidPath(boardArray, oppCoordinate, kingCoordinate, Board.oppositeColor(playerColor))) {
+                        coordinatesToBlock[blockCounter] = oppCoordinate;
+                        blockCounter++;
+                        // If there is more than one piece checking the King
+                        // the check is not blockable
+                        break outerloop;
+                    }
+                }
+            }
+        }
+
+        diffX = MoveUtility.subtractXCoordinates(oppCoordinate, kingCoordinate);
+        diffY = MoveUtility.subtractYCoordinates(oppCoordinate, kingCoordinate);
+        xIncrement = MoveUtility.calculateIncrement(diffX);
+        yIncrement = MoveUtility.calculateIncrement(diffY);
+        spacesToVerify = Math.max(Math.abs(diffX), Math.abs(diffY)) - 1;
+
+        // Moving a piece to oppCoordinate capture's the opposing piece
+        // only opposing Bishops, Rooks, and Queens can be blocked
+        if (MoveUtility.isValidDiagonalPath(boardArray, oppCoordinate, kingCoordinate) || MoveUtility.isValidStraightPath(boardArray, oppCoordinate, kingCoordinate)) {
+            for (int i = 0; i < spacesToVerify; i++) {
+                Coordinate betweenCoordinate = new Coordinate(oppCoordinate);
+                betweenCoordinate.addVals(xIncrement, yIncrement);
+                coordinatesToBlock[blockCounter] = betweenCoordinate;
+                blockCounter++;
+            }
+        }
+
+        // Loop through all Coordinates in coordinatesToBlock and see if any can block the check
+        for (int i = 0; i < blockCounter; i++) {
+            oppCoordinate = coordinatesToBlock[i];
+            for (int j = 0; j < Board.VERTICAL_BOARD_LENGTH; j++) {
+                for (int k = 0; k < Board.HORIZONTAL_BOARD_LENGTH; k++) {
+                    allyCoordinate = new Coordinate(k, j);
+                    if (MoveUtility.isValidEndpoints(boardArray, allyCoordinate, oppCoordinate, playerColor)) {
+                        if (MoveUtility.isValidPath(boardArray, allyCoordinate, oppCoordinate, playerColor)) {
+                            if (isMovePossibleWithoutCheck(boardArray, allyCoordinate, oppCoordinate, playerColor)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         return false;
     }
 
