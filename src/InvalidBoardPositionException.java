@@ -3,6 +3,6 @@
  */
 public class InvalidBoardPositionException extends Exception {
     public void printErrorMsg() {
-        System.out.println("Invalid Board Position!");
+        System.out.println("*** INVALID BOARD POSITION! ***");
     }
 }

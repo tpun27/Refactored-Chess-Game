@@ -104,3 +104,6 @@ Project SDK: Java 1.8 (1.8.0_144)
 
 - Step 22
     - Overloaded Board.makeMove() to handle castling
+
+- Step 23
+    - Created Game class to allow some to play the game!

@@ -49,8 +49,6 @@ public class Board {
             throw new InvalidMoveException();
         }
 
-        nextMoveColor = oppositeColor(nextMoveColor);
-
         // Output a message if the player has won or if the next player is in check
         nextMoveColor = oppositeColor(nextMoveColor);
         if (CheckUtility.isInCheck(boardArray, nextMoveColor)) {

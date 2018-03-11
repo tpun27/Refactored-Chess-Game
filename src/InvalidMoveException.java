@@ -3,6 +3,6 @@
  */
 public class InvalidMoveException extends Exception {
     public void printErrorMsg() {
-        System.out.println("Invalid Move!");
+        System.out.println("*** INVALID MOVE! ***");
     }
 }
