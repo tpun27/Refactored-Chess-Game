@@ -192,7 +192,83 @@ public final class CheckUtility {
 
     protected Coordinate[] calculateMoves(Piece piece) {
         Coordinate[] coordinateList;
+        Coordinate pieceCoordinate, tempCoordinate;
+        Piece.PieceColorOptions pieceColor;
+        int forwardMultiplier, coordinateCount;
+
         coordinateList = new Coordinate[8];
+        pieceCoordinate = piece.getPieceCoordinate();
+        pieceColor = piece.getPieceColor();
+        coordinateCount = 0;
+
+        // Add two diagonal moves and two forward moves
+        if (piece instanceof Pawn) {
+            if (pieceColor == Piece.PieceColorOptions.WHITE) {
+                forwardMultiplier = 1;
+            }
+            else {
+                forwardMultiplier = -1;
+            }
+            for (int i = -1; i <= 1; i++) {
+                for (int j = 1; j <= 2; j++) {
+                    if (j == 2 && i != 0) {
+                        continue;
+                    }
+                    tempCoordinate = new Coordinate(pieceCoordinate.getPosX() + i,
+                            pieceCoordinate.getPosY() + j * forwardMultiplier);
+                    if (tempCoordinate != null) {
+                        coordinateList[coordinateCount] = tempCoordinate;
+                        coordinateCount++;
+                    }
+                }
+            }
+        }
+
+        // Add 8 L-shaped moves
+        if (piece instanceof Knight) {
+            for (int i = -2; i <= 2; i++) {
+                for (int j = -2; j <= 2; j++) {
+                    if (Math.abs(i) + Math.abs(j) == 3) {
+                        tempCoordinate = new Coordinate(pieceCoordinate.getPosX() + i, pieceCoordinate.getPosY() + j);
+                        if (tempCoordinate != null) {
+                            coordinateList[coordinateCount] = tempCoordinate;
+                            coordinateCount++;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Add 4 diagonal moves
+        if (piece instanceof Bishop || piece instanceof  Queen || piece instanceof King) {
+            for (int i = -1; i <= 1; i += 2) {
+                for (int j = -1; j <= 1; j += 2) {
+                    tempCoordinate = new Coordinate(pieceCoordinate.getPosX() + i, pieceCoordinate.getPosY() + j);
+                    if (tempCoordinate != null) {
+                        coordinateList[coordinateCount] = tempCoordinate;
+                        coordinateCount++;
+                    }
+                }
+            }
+        }
+
+        // Add four staight moves
+        if (piece instanceof Rook || piece instanceof  Queen || piece instanceof Rook) {
+            for (int i = -1; i <= 1; i += 2) {
+                tempCoordinate = new Coordinate(pieceCoordinate.getPosX() + i, pieceCoordinate.getPosY());
+                if (tempCoordinate != null) {
+                    coordinateList[coordinateCount] = tempCoordinate;
+                    coordinateCount++;
+                }
+            }
+            for (int j = -1; j <= 1; j += 2) {
+                tempCoordinate = new Coordinate(pieceCoordinate.getPosX(), pieceCoordinate.getPosY() + j);
+                if (tempCoordinate != null) {
+                    coordinateList[coordinateCount] = tempCoordinate;
+                    coordinateCount++;
+                }
+            }
+        }
 
         return coordinateList;
     }
