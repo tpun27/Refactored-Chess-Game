@@ -35,11 +35,33 @@ public class Board {
             throw new InvalidMoveException();
         }
 
-        Piece movingPiece = boardArray[initialCoordinate.getPosY()][initialCoordinate.getPosX()];
-        boardArray[newCoordinate.getPosY()][newCoordinate.getPosX()] = movingPiece;
-        boardArray[initialCoordinate.getPosY()][initialCoordinate.getPosX()] = null;
+        // Make the move if it does not result in the current player's King being checked
+        if (CheckUtility.isMovePossibleWithoutCheck(boardArray, initialCoordinate, newCoordinate, nextMoveColor)) {
+            Piece movingPiece = MoveUtility.getPieceFromCoordinate(boardArray, initialCoordinate);
+            boardArray[newCoordinate.getPosY()][newCoordinate.getPosX()] = movingPiece;
+            boardArray[initialCoordinate.getPosY()][initialCoordinate.getPosX()] = null;
+            movingPiece.setPieceCoordinate(newCoordinate);
+            movingPiece.setHasMoved(true);
+
+        } else {
+            throw new InvalidMoveException();
+        }
 
         nextMoveColor = oppositeColor(nextMoveColor);
+
+        // Output a message if the player has won or if the next player is in check
+        nextMoveColor = oppositeColor(nextMoveColor);
+        if (CheckUtility.isInCheck(boardArray, nextMoveColor)) {
+            if (CheckUtility.isInCheckMate(boardArray, nextMoveColor)) {
+                System.out.println("Congratulations! " + oppositeColor(nextMoveColor) + " Wins!");
+            }
+            else {
+                System.out.println(nextMoveColor  + " is in check!");
+            }
+        }
+        else if (CheckUtility.isInStaleMate(boardArray, nextMoveColor)) {
+            System.out.println("It's a draw!");
+        }
     }
 
     protected static Piece.PieceColorOptions oppositeColor(Piece.PieceColorOptions currentColor) {

@@ -37,6 +37,10 @@ public abstract class Piece {
         pieceCoordinate = new Coordinate(pieceStringPos);
     }
 
+    public void setPieceCoordinate(Coordinate pieceCoordinate) {
+        this.pieceCoordinate = pieceCoordinate;
+    }
+
     public boolean getHasMoved() {
         return hasMoved;
     }

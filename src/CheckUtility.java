@@ -148,7 +148,7 @@ public final class CheckUtility {
         return false;
     }
 
-    protected boolean isInStaleMate(Piece[][] boardArray, Piece.PieceColorOptions playerColor) {
+    protected static boolean isInStaleMate(Piece[][] boardArray, Piece.PieceColorOptions playerColor) {
         Piece allyPiece;
         Coordinate allyCoordinate;
 
@@ -166,7 +166,7 @@ public final class CheckUtility {
         return true;
     }
 
-    protected boolean isMovable(Piece[][] boardArray, Piece piece) {
+    protected static boolean isMovable(Piece[][] boardArray, Piece piece) {
         Coordinate[] coordinateList;
         Coordinate pieceCoordinate, tempCoordinate;
         Piece.PieceColorOptions pieceColor;
@@ -190,7 +190,7 @@ public final class CheckUtility {
         return false;
     }
 
-    protected Coordinate[] calculateMoves(Piece piece) {
+    protected static Coordinate[] calculateMoves(Piece piece) {
         Coordinate[] coordinateList;
         Coordinate pieceCoordinate, tempCoordinate;
         Piece.PieceColorOptions pieceColor;

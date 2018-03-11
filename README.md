@@ -98,3 +98,6 @@ Project SDK: Java 1.8 (1.8.0_144)
 
 - Step 20
     - Implemented calculateMoves()
+
+- Step 21
+    - Added check/checkmate validation to Board.makeMove()
