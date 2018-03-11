@@ -157,7 +157,7 @@ public final class CheckUtility {
                 allyCoordinate = new Coordinate(j, i);
                 allyPiece = MoveUtility.getPieceFromCoordinate(boardArray, allyCoordinate);
                 if (allyPiece != null && allyPiece.getPieceColor() == playerColor) {
-                    if (isMovable(allyPiece)) {
+                    if (isMovable(boardArray, allyPiece)) {
                         return false;
                     }
                 }
@@ -166,8 +166,35 @@ public final class CheckUtility {
         return true;
     }
 
-    protected boolean isMovable(Piece piece) {
+    protected boolean isMovable(Piece[][] boardArray, Piece piece) {
+        Coordinate[] coordinateList;
+        Coordinate pieceCoordinate, tempCoordinate;
+        Piece.PieceColorOptions pieceColor;
+
+        coordinateList = calculateMoves(piece);
+        pieceCoordinate = piece.getPieceCoordinate();
+        pieceColor = piece.getPieceColor();
+
+        for (int i = 0; i < 8; i++) {
+            tempCoordinate = coordinateList[i];
+            if (tempCoordinate != null) {
+                if (MoveUtility.isValidEndpoints(boardArray, pieceCoordinate, tempCoordinate, pieceColor)) {
+                    if (MoveUtility.isValidPath(boardArray, pieceCoordinate, tempCoordinate, pieceColor)) {
+                        if (isMovePossibleWithoutCheck(boardArray, pieceCoordinate, tempCoordinate, pieceColor)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
         return false;
+    }
+
+    protected Coordinate[] calculateMoves(Piece piece) {
+        Coordinate[] coordinateList;
+        coordinateList = new Coordinate[8];
+
+        return coordinateList;
     }
 
     protected static Coordinate getKingCoordinate(Piece[][] boardArray, Piece.PieceColorOptions playerColor) {

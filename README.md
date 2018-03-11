@@ -92,3 +92,6 @@ Project SDK: Java 1.8 (1.8.0_144)
 
 - Step 18
     - Implemented isInStaleMate() which calls isMovable()
+
+- Step 19
+    - Implemented isMovable() which calls calculateMoves()
