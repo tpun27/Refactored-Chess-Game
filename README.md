@@ -89,3 +89,6 @@ Project SDK: Java 1.8 (1.8.0_144)
 
 - Step 17
     - Implemented isCheckBlockable() which determines if a checkmate can be prevented by moving a piece other than the king
+
+- Step 18
+    - Implemented isInStaleMate() which calls isMovable()

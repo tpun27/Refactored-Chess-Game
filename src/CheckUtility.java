@@ -148,6 +148,28 @@ public final class CheckUtility {
         return false;
     }
 
+    protected boolean isInStaleMate(Piece[][] boardArray, Piece.PieceColorOptions playerColor) {
+        Piece allyPiece;
+        Coordinate allyCoordinate;
+
+        for (int i = 0; i < Board.VERTICAL_BOARD_LENGTH; i++) {
+            for (int j = 0; j < Board.HORIZONTAL_BOARD_LENGTH; j++) {
+                allyCoordinate = new Coordinate(j, i);
+                allyPiece = MoveUtility.getPieceFromCoordinate(boardArray, allyCoordinate);
+                if (allyPiece != null && allyPiece.getPieceColor() == playerColor) {
+                    if (isMovable(allyPiece)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    protected boolean isMovable(Piece piece) {
+        return false;
+    }
+
     protected static Coordinate getKingCoordinate(Piece[][] boardArray, Piece.PieceColorOptions playerColor) {
         Piece kingPiece;
         Coordinate kingCoordinate;
