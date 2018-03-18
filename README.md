@@ -54,11 +54,11 @@ git diff step-?..step-?
     - Created Chess Piece classes
     - King, Queen, Rook, Bishop, Knight, Pawn extend abstract class Piece
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-0
 ```
-- **Keywords**: *class*, *abstract*, *extends*
+#### Keywords: *class*, *abstract*, *extends*
 
 ### Step 1
 #### Piece Symbols & Colors ([Diff][diff-1])
@@ -68,11 +68,11 @@ git checkout -f step-0
     - Added getters/setters for Piece color and symbol, including abstract setPieceSymbol() method
     - Implemented setPieceSymbol() in each subclass
 
-#### **Reset Instructions**:
+#### Reset Instructions:
 ```
 git checkout -f step-1
 ```
-#### **Keywords**: *enum*, *static*, *final*, *void*, *protected*, *attribute*, *method*, *getter*, *setter*
+#### Keywords: *enum*, *static*, *final*, *void*, *protected*, *attribute*, *method*, *getter*, *setter*
 
 ### Step 2
 #### Piece Constructor Implementation & Coordinate Positions ([Diff][diff-2])
@@ -81,11 +81,11 @@ git checkout -f step-1
     - Added Coordinate attribute to Piece class
     - Modified piece constructors to use pieceColor and pieceStringPos
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-1
 ```
-- **Keywords**: *constructor*, *super*
+#### Keywords: *constructor*, *super*
 
 ### Step 3
 #### Chess Board Array & Coordinate Validation ([Diff][diff-3])
@@ -93,7 +93,7 @@ git checkout -f step-1
     - Created BoardUtility to provide static helper methods
     - Modified Coordinate to dynamically calculate integer board positions (posX and posX) from chessStringPos
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-3
 ```
@@ -107,7 +107,7 @@ git checkout -f step-3
         - <img src="./images/board-array-mapping.png" width="50%" height="50%">
     - Created PlayChess class to run the program and display the chess board on the console
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-4
 ```
@@ -117,7 +117,7 @@ git checkout -f step-4
     - Added method to Board to make Chess moves
     - Updated PlayChess to show an example game
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-5
 ```
@@ -129,7 +129,7 @@ git checkout -f step-5
     - Started implementing isValidPath() to check for piece specific movement validation
     - Modified PlayChess to demonstrate isValidEndpoints()
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-6
 ```
@@ -140,7 +140,7 @@ git checkout -f step-6
     - Added helper methods subtractXCoordinates() and subtractYCoordinates()
     - Continued implementing isValidPath()
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-7
 ```
@@ -150,7 +150,7 @@ git checkout -f step-7
     - Added isValidDiagonalPath() to check that two Coordinates form an unobstructed diagonal path
     - Added helper methods to the Coordinate class
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-8
 ```
@@ -159,7 +159,7 @@ git checkout -f step-8
 #### Checking For Valid Vertical/Horizontal Moves ([Diff][diff-9])
     - Added isValidStraightPath() to check that two Coordinates form an unobstructed straight path
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-9
 ```
@@ -170,7 +170,7 @@ git checkout -f step-9
     - Implemented isValidKingMove()
     - Modified PlayChess to demonstrate isValidPath()
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-10
 ```
@@ -181,7 +181,7 @@ git checkout -f step-10
     - In isValidPawnMove(), a check was added to validated 2-space forward moves
     - Added hasMoved attribute to Piece class
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-11
 ```
@@ -191,7 +191,7 @@ git checkout -f step-11
     - Continued implementing isValidPawnMove()
     - In isValidPawnMove(), checks were added to validate diagonal moves and 1-space forward moves
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-12
 ```
@@ -203,7 +203,7 @@ git checkout -f step-12
     - Added move validation to Board.makeMove() method
     - Implemented PlayChess.move() method to handle exceptions
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-13
 ```
@@ -213,7 +213,7 @@ git checkout -f step-13
     - Added methods isMovePossibleWithoutCheck() and isInCheck() to CheckUtility
     - Implemented isMovePossibleWithoutCheck()
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-14
 ```
@@ -222,7 +222,7 @@ git checkout -f step-14
 #### Determining Whether Or Not King Is In Check ([Diff][diff-15])
     - Implemented isInCheck() and getKingCoordinate()
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-15
 ```
@@ -232,7 +232,7 @@ git checkout -f step-15
     - Implemented is isInCheckMate() which uses helper methods isKingMovable() and isCheckBlockable()
     - Implemented isKingMovable()
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-16
 ```
@@ -241,7 +241,7 @@ git checkout -f step-16
 #### Determining Whether Or Not Check Is Blockable ([Diff][diff-17])
     - Implemented isCheckBlockable() which determines if a checkmate can be prevented by moving a piece other than the king
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-17
 ```
@@ -250,7 +250,7 @@ git checkout -f step-17
 #### Determining Whether Or Not A Stalemate Has Occured ([Diff][diff-18])
     - Implemented isInStaleMate() which calls isMovable()
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-18
 ```
@@ -259,7 +259,7 @@ git checkout -f step-18
 #### Determining Whether Or Not Any Pieces Are Moveable For Stalemate ([Diff][diff-19])
     - Implemented isMovable() which calls calculateMoves()
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-19
 ```
@@ -268,7 +268,7 @@ git checkout -f step-19
 #### Calculating Possible Moves ([Diff][diff-20])
     - Implemented calculateMoves()
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-20
 ```
@@ -277,7 +277,7 @@ git checkout -f step-20
 #### Adding Check, Checkmate, & Stalemate Verification To Movement Method ([Diff][diff-21])
     - Added check/checkmate validation to Board.makeMove()
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-21
 ```
@@ -286,7 +286,7 @@ git checkout -f step-21
 #### Castling ([Diff][diff-22])
     - Overloaded Board.makeMove() to handle castling
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-22
 ```
@@ -295,7 +295,7 @@ git checkout -f step-22
 #### Making The Game Playable ([Diff][diff-23])
     - Created Game class to allow some to play the game!
 
-- ***Reset Instructions***:
+#### Reset Instructions:
 ```
 git checkout -f step-23
 ```
