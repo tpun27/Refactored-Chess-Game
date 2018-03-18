@@ -31,7 +31,27 @@
 - [Step 22 - Castling](#step-22)
 - [Step 23 - Making The Game Playable](#step-23)
 
+## Commits / Tutorial Outline
+
+You can check out any point of the tutorial using:
+
+```
+git checkout step-?
+```
+
+To see the changes made between any two lessons use the `git diff` command:
+
+```
+git diff step-?..step-?
+
+```
+
 ### Step 0 - Piece Creation
+    - Reset Instructions:
+    ```
+    git checkout -f step-0
+    ```
+    - [Diff Link][diff-0]:
     - Created initial Java Project using IntelliJ
     - Created Chess Piece classes
     - King, Queen, Rook, Bishop, Knight, Pawn extend abstract class Piece
@@ -140,3 +160,4 @@
     - Created Game class to allow some to play the game!
 
 [original-chess-game-repo]: https://github.com/tpun27/Chess-Game
+[diff-0]: https://github.com/tpun27/Refactored-Chess-Game/commit/0425b8d35fdd462fdea25d19fef104774ee72a28
