@@ -1,5 +1,9 @@
-## Chess-Game-Refactored
+# Chess Game (Refactored)
+---
+
+## Overview
 - A Bite-Sized Commit Tutorial Project
+- This project converts [this][original-chess-game-repo] Java Chess repository into a tutorial with step-by-step commits
 
 Project SDK: Java 1.8 (1.8.0_144)
 
@@ -115,7 +119,7 @@ Project SDK: Java 1.8 (1.8.0_144)
 ### Step 17
     - Implemented isCheckBlockable() which determines if a checkmate can be prevented by moving a piece other than the king
 
-###Step 18
+### Step 18
     - Implemented isInStaleMate() which calls isMovable()
 
 ### Step 19
@@ -132,3 +136,5 @@ Project SDK: Java 1.8 (1.8.0_144)
 
 ### Step 23
     - Created Game class to allow some to play the game!
+
+[original-chess-game-repo]: https://github.com/tpun27/Chess-Game
