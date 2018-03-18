@@ -48,13 +48,15 @@ git diff step-?..step-?
 
 ## Steps
 
-### Step 0 - Piece Creation [Diff][diff-0]
+### Step 0 - Piece Creation ([Diff][diff-0])
 
 
-    - Reset Instructions: git checkout -f step-0
     - Created initial Java Project using IntelliJ
     - Created Chess Piece classes
     - King, Queen, Rook, Bishop, Knight, Pawn extend abstract class Piece
+
+    
+    - Reset Instructions: git checkout -f step-0
     - **Keywords**: class, abstract, extends
 
 ### Step 1 - Piece Symbols & Colors
