@@ -83,7 +83,7 @@ git checkout -f step-1
 
 #### Reset Instructions:
 ```
-git checkout -f step-1
+git checkout -f step-2
 ```
 #### Keywords: *constructor*, *super*
 
