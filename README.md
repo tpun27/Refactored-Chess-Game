@@ -49,15 +49,13 @@ git diff step-?..step-?
 ## Steps
 
 ### Step 0 - Piece Creation
-- Reset Instructions:
-```
-git checkout -f step-0
-```
-- [Diff][diff-0]
-- Created initial Java Project using IntelliJ
-- Created Chess Piece classes
-- King, Queen, Rook, Bishop, Knight, Pawn extend abstract class Piece
-- **Keywords**: class, abstract, extends
+[Diff][diff-0]
+    - Reset Instructions: git checkout -f step-0
+    - [Diff][diff-0]
+    - Created initial Java Project using IntelliJ
+    - Created Chess Piece classes
+    - King, Queen, Rook, Bishop, Knight, Pawn extend abstract class Piece
+    - **Keywords**: class, abstract, extends
 
 ### Step 1 - Piece Symbols & Colors
     - Added Unicode constants into each Chess piece symbol
