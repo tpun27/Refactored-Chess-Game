@@ -6,6 +6,7 @@
 
 **Project SDK**: Java 1.8 (1.8.0_144)
 
+## Contents
 - [Step 0 - Piece Creation](#step-0)
 - [Step 1 - Piece Symbols & Colors](#step-1)
 - [Step 2 - Piece Constructor Implementation & Coordinate Positions](#step-2)
