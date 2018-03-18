@@ -56,8 +56,11 @@ git diff step-?..step-?
     - King, Queen, Rook, Bishop, Knight, Pawn extend abstract class Piece
 
 
-- Reset Instructions: git checkout -f step-0
-- **Keywords**: class, abstract, extends
+- ***Reset Instructions***:
+```
+git checkout -f step-0
+```
+- **Keywords**: *class*, *abstract*, *extends*
 
 ### Step 1 - Piece Symbols & Colors
     - Added Unicode constants into each Chess piece symbol
