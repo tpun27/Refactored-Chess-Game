@@ -68,11 +68,11 @@ git checkout -f step-0
     - Added getters/setters for Piece color and symbol, including abstract setPieceSymbol() method
     - Implemented setPieceSymbol() in each subclass
 
-- ***Reset Instructions***:
+#### **Reset Instructions**:
 ```
 git checkout -f step-1
 ```
-- **Keywords**: *enum*, *static*, *final*, *void*, *protected*, *attribute*, *method*, *getter*, *setter*
+#### **Keywords**: *enum*, *static*, *final*, *void*, *protected*, *attribute*, *method*, *getter*, *setter*
 
 ### Step 2
 #### Piece Constructor Implementation & Coordinate Positions ([Diff][diff-2])
